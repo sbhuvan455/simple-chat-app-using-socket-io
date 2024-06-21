@@ -76,7 +76,7 @@ function Chat() {
         {inputData.room}
       </div>
       <div className="flex w-full h-[100vh] overflow-hidden">
-        <div className="w-[25%] bg-slate-100 select-none flex-col gap-5 pt-20">
+        <div className="md:w-[25%] w-0 bg-slate-100 select-none flex-col gap-5 pt-20">
           {members.map((member) => {
             return (
               <div key={member.id} className="w-full flex items-center gap-5 px-6 my-5">
@@ -93,23 +93,29 @@ function Chat() {
             );
           })}
         </div>
-        <div className="bg-amber-50 w-[75%] overflow-y-scroll pb-8">
+        <div className="bg-amber-50 md:w-[75%] w-full overflow-y-scroll pb-8">
           <div className="pt-20 pb-20">
             {messages.map((message, index) => {
               return (
                 (message.user === inputData.username) ? (
                   <div key={index} className="py-2 px-2 bg-green-400 text-white my-2">
+                    <div className="font-thin py-1 text-xs">
+                      ~ you
+                    </div>
                     {message.text}
                   </div>
                 ):(
                   <div key={index} className="py-2 px-2 bg-white text-black my-2">
+                    <div className="font-thin py-1 text-xs">
+                      ~ {message.user}
+                    </div>
                     {message.text}
                   </div>
                 )
               )
             })}
           </div>
-          <div className="w-[75%] h-14 bg-slate-200 absolute bottom-7 rounded-md flex items-center justify-center gap-6">
+          <div className="md:w-[75%] w-full h-14 bg-slate-200 absolute bottom-7 rounded-md flex items-center justify-center gap-6">
             <input
               type="text"
               name="message"

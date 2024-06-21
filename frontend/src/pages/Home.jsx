@@ -21,8 +21,8 @@ function Home() {
         Welcome to Chit-Chatters
       </div>
       <form onSubmit={ handleSubmit } className='w-80 py-16 rounded-md shadow-md shadow-slate-300 bg-slate-100 mx-auto my-10 flex flex-col gap-8 justify-center items-center'>
-        <div className='flex flex-col gap-2 justify-center w-4/5 items-start mx-auto text-black font-serif font-semibold'>
-          <label htmlFor="username">Username</label>
+        <div className='flex flex-col gap-2 justify-center w-4/5 items-start mx-auto text-black font-semibold'>
+          <label htmlFor="username" className='font-serif'>Username</label>
           <input 
             type="text" 
             name="username"
@@ -37,8 +37,8 @@ function Home() {
             className='border-gray-200 w-[100%] outline-none px-2 py-2 border-2 rounded-md'
           />
         </div>
-        <div className='flex flex-col gap-2 justify-center w-4/5 items-start mx-auto text-black font-serif font-semibold'>
-          <label htmlFor="Room">Room Name</label>
+        <div className='flex flex-col gap-2 justify-center w-4/5 items-start mx-auto text-black font-semibold'>
+          <label htmlFor="Room" className='font-serif'>Room Name</label>
           <input 
             type="text" 
             name="Room" 
