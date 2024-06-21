@@ -19,8 +19,13 @@ io.on('connection', (socket) => {
     console.log("socket is connected");
 
     socket.on('join Room', (username, room) => {
+        console.log("Connecting to room")
         socket.join(room);
-        socket.broadcast.to(room).emit("user joined", `${username} joined the chat`);
+        socket.broadcast.to(room).emit("user joined", `${username} joined the chat`, {id: socket.id, name: username});
+    })
+
+    socket.on('sendMessage', (message, inputData) => {
+        io.to(inputData.room).emit("message recieved", message, inputData.username);
     })
 
     socket.on('disconnect', () => {
